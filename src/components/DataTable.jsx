@@ -13,9 +13,9 @@ import {
 	Dropdown
 } from "semantic-ui-react";
 
-export default function DataTable({items, selectedItemIds, onClickRowCheckbox, onClickHeaderCheckbox, activePageNumber, onPageChange, pageCount, pageLength, pageLengthOptions, onChangePageLength}) {
+export default function DataTable({items, selectedItemIds, onClickRowCheckbox, onClickHeaderCheckbox, activePageNumber, onPageChange, pageCount, pageLength, pageLengthOptions, onChangePageLength, onClickSort, sorted}) {
 	return (
-		<Table celled>
+		<Table celled selectable sortable className="data-table">
 			<TableHeader>
 				<TableRow>
 					<TableHeaderCell>
@@ -25,12 +25,12 @@ export default function DataTable({items, selectedItemIds, onClickRowCheckbox, o
 							onClick={onClickHeaderCheckbox}
 						/>
 					</TableHeaderCell>
-					<TableHeaderCell>ID</TableHeaderCell>
-					<TableHeaderCell>Category</TableHeaderCell>
-					<TableHeaderCell>Image</TableHeaderCell>
-					<TableHeaderCell>Name</TableHeaderCell>
-					<TableHeaderCell>Description</TableHeaderCell>
-					<TableHeaderCell>Full Name</TableHeaderCell>
+					<TableHeaderCell sorted={sorted.column === "id" ? sorted.direction : null} 				onClick={() => onClickSort("id")}>ID</TableHeaderCell>
+					<TableHeaderCell sorted={sorted.column === "category" ? sorted.direction : null} 		onClick={() => onClickSort("category")}>Category</TableHeaderCell>
+					<TableHeaderCell sorted={sorted.column === "image" ? sorted.direction : null}			onClick={() => onClickSort("image")}>Image</TableHeaderCell>
+					<TableHeaderCell sorted={sorted.column === "name" ? sorted.direction : null} 			onClick={() => onClickSort("name")}>Name</TableHeaderCell>
+					<TableHeaderCell sorted={sorted.column === "description" ? sorted.direction : null} 	onClick={() => onClickSort("description")}>Description</TableHeaderCell>
+					<TableHeaderCell sorted={sorted.column === "fullName" ? sorted.direction : null} 		onClick={() => onClickSort("fullName")}>Full Name</TableHeaderCell>
 				</TableRow>
 			</TableHeader>
 
@@ -76,5 +76,3 @@ export default function DataTable({items, selectedItemIds, onClickRowCheckbox, o
 		</Table>
 	);
 }
-
-// export default DataTable;

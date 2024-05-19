@@ -1,3 +1,7 @@
+.data-table {
+	filter: invert(0.8);
+}
+
 .pagination-cell {
 	width: fit-content;
 	float: right;
