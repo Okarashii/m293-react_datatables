@@ -36,7 +36,7 @@ export default function DataTable({items, selectedItemIds, onClickRowCheckbox, o
 
 			<TableBody>
 				{items.map((i) => 
-					<TableRow key={i.id}>
+					<TableRow key={i.id} active={selectedItemIds.includes(i.id)}>
 						<TableCell>
 							<Checkbox checked={selectedItemIds.includes(i.id)} onClick={() => onClickRowCheckbox(i.id)}/>
 						</TableCell>
