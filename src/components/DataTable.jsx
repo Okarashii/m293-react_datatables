@@ -15,22 +15,22 @@ import {
 
 export default function DataTable({items, selectedItemIds, onClickRowCheckbox, onClickHeaderCheckbox, activePageNumber, onPageChange, pageCount, pageLength, pageLengthOptions, onChangePageLength, onClickSort, sorted}) {
 	return (
-		<Table celled selectable sortable className="data-table">
+		<Table celled selectable sortable className="data-table" striped singleLine fixed>
 			<TableHeader>
 				<TableRow>
-					<TableHeaderCell>
+					<TableHeaderCell width={1}>
 						<Checkbox
 							indeterminate={!(items.length === selectedItemIds.length && items.length > 0) && selectedItemIds.length > 0}
 							checked={items.length === selectedItemIds.length && items.length > 0}
 							onClick={onClickHeaderCheckbox}
 						/>
 					</TableHeaderCell>
-					<TableHeaderCell sorted={sorted.column === "id" ? sorted.direction : null} 				onClick={() => onClickSort("id")}>ID</TableHeaderCell>
-					<TableHeaderCell sorted={sorted.column === "category" ? sorted.direction : null} 		onClick={() => onClickSort("category")}>Category</TableHeaderCell>
-					<TableHeaderCell sorted={sorted.column === "image" ? sorted.direction : null}			onClick={() => onClickSort("image")}>Image</TableHeaderCell>
-					<TableHeaderCell sorted={sorted.column === "name" ? sorted.direction : null} 			onClick={() => onClickSort("name")}>Name</TableHeaderCell>
-					<TableHeaderCell sorted={sorted.column === "description" ? sorted.direction : null} 	onClick={() => onClickSort("description")}>Description</TableHeaderCell>
-					<TableHeaderCell sorted={sorted.column === "fullName" ? sorted.direction : null} 		onClick={() => onClickSort("fullName")}>Full Name</TableHeaderCell>
+					<TableHeaderCell width={1} sorted={sorted.column === "id" ? sorted.direction : null} 				onClick={() => onClickSort("id")}>ID</TableHeaderCell>
+					<TableHeaderCell width={3} sorted={sorted.column === "category" ? sorted.direction : null} 		onClick={() => onClickSort("category")}>Category</TableHeaderCell>
+					<TableHeaderCell width={3} sorted={sorted.column === "image" ? sorted.direction : null}			onClick={() => onClickSort("image")}>Image</TableHeaderCell>
+					<TableHeaderCell width={3} sorted={sorted.column === "name" ? sorted.direction : null} 			onClick={() => onClickSort("name")}>Name</TableHeaderCell>
+					<TableHeaderCell width={10} sorted={sorted.column === "description" ? sorted.direction : null} 	onClick={() => onClickSort("description")}>Description</TableHeaderCell>
+					<TableHeaderCell width={3} sorted={sorted.column === "fullName" ? sorted.direction : null} 		onClick={() => onClickSort("fullName")}>Full Name</TableHeaderCell>
 				</TableRow>
 			</TableHeader>
 
