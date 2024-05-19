@@ -1,0 +1,6 @@
+.pagination-cell {
+	width: fit-content;
+	float: right;
+	display: flex;
+	gap: 2rem;
+}

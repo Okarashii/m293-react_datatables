@@ -1,3 +1,4 @@
+import './DataTable.css';
 import React from "react";
 import {
 	TableRow,
@@ -52,14 +53,23 @@ export default function DataTable({items, selectedItemIds, onClickRowCheckbox, o
 			<TableFooter>
 				<TableRow>
 					<TableHeaderCell colSpan="7">
-						<Pagination
-							activePage={activePageNumber}
-							totalPages={pageCount}
-							boundaryRange={1}
-							siblingRange={1}
-							onPageChange={(e, {activePage}) => onPageChange(activePage)}
-						/>
-						<Dropdown options={pageLengthOptions} value={pageLength} onChange={(e, {value}) => onChangePageLength(value)}/>
+						<div className="pagination-cell">
+							<Dropdown
+								compact
+								options={pageLengthOptions}
+								value={pageLength}
+								selection
+								onChange={(e, {value}) => onChangePageLength(value)}
+							/>
+
+							<Pagination
+								activePage={activePageNumber}
+								totalPages={pageCount}
+								boundaryRange={1}
+								siblingRange={1}
+								onPageChange={(e, {activePage}) => onPageChange(activePage)}
+							/>
+						</div>
 					</TableHeaderCell>
 				</TableRow>
 			</TableFooter>
